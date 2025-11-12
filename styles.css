@@ -620,10 +620,10 @@ html, body {
     width: 100%;
 }
 
-/* Mobilde her satırda 1 proje olacak şekilde */
 @media (max-width: 768px) {
     .references-grid {
-        grid-template-columns: 1fr !important; /* Tek kolon zorla */
+        display: grid;          /* grid’i tekrar tanımla */
+        grid-template-columns: 1fr; /* kesinlikle 1 kolon */
         gap: 24px;
         padding: 0 16px;
     }
@@ -644,6 +644,7 @@ html, body {
         aspect-ratio: 16/9; /* mobilde daha yatay ve kısa görünüm */
     }
 }
+
 
 
 
