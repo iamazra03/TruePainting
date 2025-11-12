@@ -522,12 +522,7 @@ html, body {
     transform: scale(1.1);
 }
 
-/* Küçük ekranlarda */
-@media (max-width: 768px) {
-    .services-image {
-        aspect-ratio: 16/9;  /* mobilde daha yatay ve kısa görünüm */
-    }
-}
+
 
 
 
