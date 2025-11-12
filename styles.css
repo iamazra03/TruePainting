@@ -562,7 +562,7 @@ html, body {
     transform: translateY(20px);
 
     width: 100%;      /* Services ile aynı genişlik */
-    max-width: 400px; /* Services kartlarının max-width değeri */
+    
 }
 
 
@@ -630,14 +630,14 @@ html, body {
         display: grid !important;
         grid-template-columns: 1fr !important; /* tek kolon zorla */
         gap: 24px;
-        padding: 0 16px;
+        
     }
 
     .reference-card {
         width: 100%;
         max-width: 100%;
         margin: 0 auto 24px auto; /* alt boşluk bırak */
-        padding: 16px;
+        padding: 40px  32px;
         box-sizing: border-box;
     }
 
