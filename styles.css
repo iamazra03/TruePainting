@@ -825,9 +825,10 @@ html, body {
     margin-bottom: 4px;
 }
 
-
-/* Responsive */
+/* ----------- RESPONSIVE ----------- */
 @media (max-width: 768px) {
+
+    /* Navbar ve menü */
     .nav-links {
         display: none;
     }
@@ -836,37 +837,50 @@ html, body {
         display: flex;
     }
     
-    .hero-box h1 {
-        font-size: 2rem;
-    }
-    
+    /* Hero ve section başlıkları */
+    .hero-box h1,
     .section-title {
         font-size: 2rem;
     }
     
+    /* Grid düzenleri */
     .services-grid,
-    .references-grid {
-        grid-template-columns: 1fr;
-    }
-    
+    .references-grid,
     .contact-grid {
         grid-template-columns: 1fr;
     }
-    
+
+    /* Footer grid düzeni */
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 24px;
+        gap: 32px; /* elemanlar arası boşluk */
+        padding: 20px; /* üst-alt boşluk */
     }
-    
+
+    /* Footer logo ve copy dikey hizalama */
     .footer-logo,
     .footer-copy {
         display: flex;
+        flex-direction: column; /* alt alta diz */
         justify-content: center;
+        align-items: center;
+        gap: 12px; /* logo ve yazı arası boşluk */
     }
-    
-    .footer-copy {
-        text-align: center;
+
+    /* Footer links */
+    .footer-links {
+        margin-top: 12px;
+    }
+
+    .footer-nav {
+        flex-direction: column; /* linkler alt alta */
+        gap: 12px; /* linkler arası boşluk */
+    }
+
+    /* Footer copy yazıları arası boşluk */
+    .footer-copy p {
+        margin: 8px 0;
     }
 }
 
@@ -875,3 +889,4 @@ html, body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
