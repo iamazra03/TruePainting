@@ -542,12 +542,11 @@ html, body {
 /* Grid yapısı */
 .references-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Services ile aynı */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
     max-width: 1200px;
     margin: 0 auto;
 }
-
 
 /* Kart kutusu */
 .reference-card {
@@ -560,11 +559,7 @@ html, body {
     flex-direction: column;
     opacity: 0;
     transform: translateY(20px);
-
-    width: 100%;       /* kolon genişliğini doldur, Services ile aynı */
-    max-width: 100%;   /* taşmayı önle */
 }
-
 
 .reference-card.visible {
     opacity: 1;
@@ -636,8 +631,8 @@ html, body {
     }
 
     .reference-card {
-        width: 100%;         /* kolon genişliğini doldur */
-        max-width: 100%;     /* taşmayı önle */
+        width: 100%;
+        max-width: 100%;
         margin: 0 auto 24px auto; /* alt boşluk bırak */
         padding: 16px;
         box-sizing: border-box;
