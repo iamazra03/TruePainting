@@ -525,13 +525,23 @@ html, body {
 
 /* Küçük ekranlarda daha sıkı görünüm */
 @media (max-width: 768px) {
-    .services-section {
-        padding: 60px 16px;
+    .services-image {
+        max-width: 100%;   /* ekran genişliğine göre */
+        height: auto;      /* yüksekliği otomatik */
+        margin-left: 0;
+        margin-right: 0;
     }
+
+    .services-image img {
+        width: 100%;       /* kutuyu doldur */
+        height: auto;      /* oranı koru */
+    }
+
     .service-card {
-        padding: 28px 20px;
+        padding: 28px 16px; /* biraz daha daraltabiliriz */
     }
 }
+
 
 
 /* References Section */
