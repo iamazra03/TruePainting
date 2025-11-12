@@ -620,10 +620,11 @@ html, body {
     width: 100%;
 }
 
+/* Mobilde tek kolon garanti */
 @media (max-width: 768px) {
     .references-grid {
-        display: grid;          /* grid’i tekrar tanımla */
-        grid-template-columns: 1fr; /* kesinlikle 1 kolon */
+        display: grid;
+        grid-template-columns: 1fr; /* sadece 1 kolon */
         gap: 24px;
         padding: 0 16px;
     }
@@ -641,7 +642,7 @@ html, body {
     }
 
     .reference-image {
-        aspect-ratio: 16/9; /* mobilde daha yatay ve kısa görünüm */
+        aspect-ratio: 16/9; /* daha kısa ve geniş görünüm */
     }
 }
 
