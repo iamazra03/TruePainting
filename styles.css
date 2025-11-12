@@ -539,6 +539,7 @@ html, body {
     background: linear-gradient(135deg, rgba(153, 102, 204, 0.05), var(--background), rgba(153, 102, 204, 0.1));
 }
 
+/* Grid yapısı */
 .references-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -547,6 +548,7 @@ html, body {
     margin: 0 auto;
 }
 
+/* Kart kutusu */
 .reference-card {
     background-color: var(--white);
     border-radius: 12px;
@@ -569,19 +571,20 @@ html, body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* Resim */
 .reference-image {
-    width: 100%;
-    aspect-ratio: 4/3;
+    width: 100%;           /* grid kutusunu doldur */
+    aspect-ratio: 4/3;     /* web’de eşit boyutlu görünsün */
     overflow: hidden;
-    display: flex;            /* flex ile ortalama */
-    justify-content: center;  /* yatay ortala */
-    align-items: center;      /* dikey ortala */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .reference-image img {
-    max-width: 100%;         /* kutuyu aşmasın */
-    max-height: 100%;        /* yüksekliği taşmasın */
-    object-fit: cover;       /* oran bozulmasın */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
     transition: transform 0.3s ease;
 }
@@ -591,6 +594,7 @@ html, body {
     transform: scale(1.05);
 }
 
+/* İçerik */
 .reference-content {
     padding: 24px;
     flex-grow: 1;
@@ -616,18 +620,16 @@ html, body {
     width: 100%;
 }
 
-
-
-
-/* Mobilde her satırda 1 proje olacak şekilde ayarlama */
+/* Mobilde her satırda 1 proje olacak şekilde */
 @media (max-width: 768px) {
     .references-grid {
-        grid-template-columns: 1fr; /* her satırda 1 kolon */
-        gap: 24px; /* dilersen biraz daha sıkışık yapabilirsin */
-        padding: 0 16px; /* kenarlardan boşluk bırak */
+        grid-template-columns: 1fr !important; /* Tek kolon zorla */
+        gap: 24px;
+        padding: 0 16px;
     }
 
     .reference-card {
+        width: 100%;
         max-width: 100%;
         margin: 0 auto;
         padding: 16px;
@@ -639,7 +641,7 @@ html, body {
     }
 
     .reference-image {
-        aspect-ratio: 16/9; /* mobilde daha geniş ve kısa bir görünüm için */
+        aspect-ratio: 16/9; /* mobilde daha yatay ve kısa görünüm */
     }
 }
 
