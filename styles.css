@@ -651,7 +651,7 @@ html, body {
 
 .contact-grid {
     display: flex;
-    align-items: flex-start; /* stretch yerine */
+    flex-wrap: wrap; /* Mobilde alt alta geçmesini sağlar */
     gap: 32px;
     max-width: 1200px;
     margin: 0 auto;
@@ -659,12 +659,15 @@ html, body {
 
 .contact-form-container,
 .contact-info {
+    flex: 1 1 100%; /* Mobilde tam genişlik */
+    min-width: 280px;
     background-color: var(--white);
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Form Elements */
 .form-group {
     margin-bottom: 16px;
 }
@@ -709,8 +712,19 @@ html, body {
     width: 100%;
     padding: 16px;
     font-size: 1.125rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
+.btn-full:hover {
+    background-color: rgba(153, 102, 204, 0.8);
+}
+
+/* Contact Info */
 .contact-info h3 {
     color: var(--primary-color);
     font-size: 1.5rem;
@@ -788,6 +802,26 @@ html, body {
     color: var(--text-light);
     line-height: 1.6;
 }
+
+/* Responsive */
+@media (min-width: 768px) {
+    .contact-form-container,
+    .contact-info {
+        flex: 1 1 48%; /* Masaüstünde yan yana */
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-section {
+        padding: 50px 10px;
+    }
+
+    .contact-form-container,
+    .contact-info {
+        padding: 1rem;
+    }
+}
+
 
 /* Footer */
 .footer {
