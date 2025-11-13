@@ -1334,35 +1334,22 @@ html, body {
 
 /* === Responsive === */
 @media (max-width: 900px) {
-  .photo-item {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-
   .process-card {
-    position: absolute;
-    top: 10%;       /* resmin üstünden 10% aşağıda */
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 300px;
-    padding: 1rem 1.2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    background: rgba(255,255,255,0.9);
-    z-index: 5;
+    max-width: 90%;       /* genişliği arttırdık */
+    padding: 0.8rem 1rem; /* dikey alanı azalttık */
+    top: 8%;              /* biraz yukarı çekildi */
   }
 
   .process-card h1 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;   /* başlığı biraz küçülttük */
+    line-height: 1.3;     /* sıkıştırma */
   }
 
   .process-actions {
-    flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;          /* buton ve telefon arası biraz kısaldı */
   }
 
   .process-phone {
-    font-size: 0.95rem;
+    font-size: 0.9rem;    /* telefon numarası biraz küçük */
   }
 }
