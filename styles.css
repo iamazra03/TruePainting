@@ -1222,40 +1222,42 @@ html, body {
   background-color: var(--background);
 }
 
-/* === Left side: Image with card === */
-.gallery-item {
+.photo-item {
   position: relative;
-  flex: 1 1 45%; /* tekrar eski genişliğe çektik */
+  flex: 1 1 45%;
   border-radius: 16px;
   overflow: hidden;
+  cursor: default; /* Resmin üstüne gelince tıklama işareti çıkmasın */
 }
 
-/* Görsel yüksekliğini artırdık */
-.gallery-item img {
+.photo-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 16px;
   display: block;
+  border-radius: 16px;
+  pointer-events: none; /* Resme tıklamayı tamamen kapatır */
 }
 
 
+
+/* Kart küçültülmüş hâli */
 .process-card {
   position: absolute;
-  top: 10%;
-  left: 8%;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 2rem 2.5rem;
-  border-radius: 16px;
-  max-width: 420px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  top: 8%;
+  left: 6%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem 1.8rem;
+  border-radius: 14px;
+  max-width: 340px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   backdrop-filter: blur(6px);
 }
 
 .process-card h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: var(--text-dark);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .process-actions {
@@ -1264,18 +1266,20 @@ html, body {
   gap: 1rem;
 }
 
-.process-btn {
-  background-color: var(--button-bg);
-  color: var(--button-text);
+/* === Sarı Buton === */
+.btn-primary {
+  background-color: var(--button-bg); /* Sarı */
+  color: var(--button-text); /* Mor yazı */
   font-weight: 600;
   padding: 0.9rem 1.6rem;
   border-radius: 8px;
-  text-decoration: none;
+  border: none;
+  cursor: pointer;
   transition: 0.3s ease;
 }
 
-.process-btn:hover {
-  background-color: var(--button-hover);
+.btn-primary:hover {
+  background-color: var(--button-hover); /* Mor hover */
   color: var(--white);
   transform: scale(1.05);
 }
@@ -1310,7 +1314,6 @@ html, body {
   font-size: 0.95rem;
 }
 
-/* Alt madde listesi (mor renk) */
 .step-list {
   list-style: disc;
   margin-left: 1.5rem;
@@ -1324,7 +1327,6 @@ html, body {
   margin-bottom: 0.3rem;
 }
 
-/* Link rengi mor */
 .link-purple {
   color: var(--primary-color);
   text-decoration: underline;
@@ -1332,32 +1334,31 @@ html, body {
 
 /* === Responsive === */
 @media (max-width: 900px) {
-  .process-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gallery-item,
-  .process-steps {
-    flex: 1 1 100%;
+  .photo-item {
+    position: relative; /* resim kapsayıcı hâlinde */
   }
 
   .process-card {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin-top: 1rem;
+    position: absolute;  /* resmin üstünde kalacak */
+    top: 10%;            /* biraz yukarıda başlasın */
+    left: 5%;
+    max-width: 300px;    /* küçültülmüş kart */
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.9);
   }
 
   .process-card h1 {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
-  .process-steps {
-    padding: 2rem 1.5rem;
+  .process-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .process-phone {
+    font-size: 0.95rem;
   }
 }
-
-
-
-
