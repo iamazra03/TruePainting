@@ -1337,21 +1337,20 @@ html, body {
   .photo-item {
     position: relative;
     width: 100%;
-    height: auto; /* resmin yüksekliğine göre ayarlanıyor */
-    min-height: 250px; /* mobilde kartın gözükmesi için minimum yükseklik */
+    height: auto;
   }
 
   .process-card {
     position: absolute;
-    top: 15px;      /* resmin üstünden 15px aşağıda */
+    top: 10%;       /* resmin üstünden 10% aşağıda */
     left: 50%;
-    transform: translateX(-50%); /* ortalama */
+    transform: translateX(-50%);
     max-width: 300px;
     padding: 1rem 1.2rem;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     background: rgba(255,255,255,0.9);
-    z-index: 5; /* üstte kalsın */
+    z-index: 5;
   }
 
   .process-card h1 {
