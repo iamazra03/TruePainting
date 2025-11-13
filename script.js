@@ -44,6 +44,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// ----------------------
+// Mobile menu toggle
+// ----------------------
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        const navLinksContainer = document.querySelector('.nav-links');
+        if (navLinksContainer) {
+            navLinksContainer.style.display = navLinksContainer.style.display === 'flex' ? 'none' : 'flex';
+        }
+    });
+}
+
 
 
 // ----------------------
@@ -129,15 +142,43 @@ if (form) {
 }
 
 
+
 // ----------------------
-// Mobile menu toggle
+// Our Gallery
 // ----------------------
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-        const navLinksContainer = document.querySelector('.nav-links');
-        if (navLinksContainer) {
-            navLinksContainer.style.display = navLinksContainer.style.display === 'flex' ? 'none' : 'flex';
-        }
+const galleryContainer = document.querySelector('.gallery-container');
+const galleryItems = document.querySelectorAll('.gallery-item img');
+const lightbox = document.querySelector('.lightbox');
+const lightboxImg = document.querySelector('.lightbox-content');
+const closeBtn = document.querySelector('.lightbox .close');
+const leftBtn = document.querySelector('.gallery-btn.left');
+const rightBtn = document.querySelector('.gallery-btn.right');
+
+let currentIndex = 0;
+
+// Lightbox açma
+galleryItems.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        currentIndex = index;
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
     });
-}
+});
+
+// Lightbox kapama
+closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+});
+
+// Slider ok tuşları
+leftBtn.addEventListener('click', () => {
+    galleryContainer.scrollBy({ left: -400, behavior: 'smooth' });
+});
+
+rightBtn.addEventListener('click', () => {
+    galleryContainer.scrollBy({ left: 400, behavior: 'smooth' });
+});
+
+
+

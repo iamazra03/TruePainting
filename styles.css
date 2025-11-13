@@ -124,6 +124,28 @@ html {
 
 /* ----------- MOBİL GÖRÜNÜM ----------- */
 @media (max-width: 768px) {
+        /* Menü butonu mobilde görünür olsun */
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 1100;
+    }
+
+    /* Hamburger ikonunun X’e dönüşümü */
+    .mobile-menu-btn.open span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+    }
+
+    .mobile-menu-btn.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-btn.open span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+    }
+
+    .mobile-menu-btn span {
+        transition: all 0.3s ease;
+    }
     /* ESKİ HALİNİ SİL, YERİNE BUNU KOY */
     .nav-links {
         position: fixed;
@@ -151,43 +173,6 @@ html {
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
-    }
-
-    /* × Kapatma butonu (aynı kalıyor) */
-    .nav-links::before {
-        content: "×";
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 38px;
-        font-weight: 300;
-        color: #222;
-        width: 56px;
-        height: 56px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border-radius: 50%;
-        transition: background 0.2s;
-        z-index: 10;
-    }
-
-    .nav-links::before:hover {
-        background: #f0f0f0;
-    }
-
-    /* Link stilleri */
-    .nav-links a {
-        font-size: 18px;
-        font-weight: 500;
-        color: #1a1a1a;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-        color: #6b11dc;
     }
 }
 
@@ -259,6 +244,7 @@ html, body {
         display: none;
     }
 }
+
 
 
 
@@ -413,6 +399,122 @@ html, body {
     margin-top: 20px;
     flex-direction: row-reverse; /* Sıralamayı tersine çevir */
 }
+
+
+.gallery-section {
+    padding: 80px 20px;
+    background-color: var(--background);
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.gallery-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-container {
+    display: flex;
+    gap: 30px; /* Daha ferah ve büyük */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+}
+
+/* Hide scrollbar */
+.gallery-container::-webkit-scrollbar { display: none; }
+.gallery-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+.gallery-item {
+    flex: 0 0 auto;
+    width: 400px;  /* Resimler büyük */
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* Arrows */
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    background-color: rgba(153,102,204,0.9);
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.gallery-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.gallery-btn.left { left: 10px; }
+.gallery-btn.right { right: 10px; }
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1200px) { .gallery-item { width: 350px; height: 220px; } }
+@media (max-width: 992px)  { .gallery-item { width: 300px; height: 200px; } }
+@media (max-width: 768px)  { .gallery-item { width: 250px; height: 160px; } }
+@media (max-width: 480px)  { .gallery-item { width: 200px; height: 140px; } }
+
 
 
 /* Home Section */
@@ -1035,4 +1137,170 @@ html, body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+:root {
+  --primary-color: #9966CC;
+  --button-bg: #FFD447;
+  --button-text: #4B0082;
+  --button-hover: #7A3BB5;
+  --background: #FAFAFA;
+  --text-dark: #2d2d2d;
+  --text-light: #6b6b6b;
+  --white: #ffffff;
+}
+
+/* === Process Section === */
+.process-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 3rem 5%;
+  background-color: var(--background);
+}
+
+/* === Left side: Image with card === */
+.gallery-item {
+  position: relative;
+  flex: 1 1 45%; /* tekrar eski genişliğe çektik */
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Görsel yüksekliğini artırdık */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  min-height: 650px; /* 🔹 Boyu artırıldı */
+}
+
+
+.process-card {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+.process-card h1 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.process-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.process-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-weight: 600;
+  padding: 0.9rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.process-btn:hover {
+  background-color: var(--button-hover);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+.process-phone {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* === Right side: Steps === */
+.process-steps {
+  flex: 1 1 40%;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.step {
+  margin-bottom: 2rem;
+}
+
+.step h3 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.step p {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Alt madde listesi (mor renk) */
+.step-list {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.step-list li {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+/* Link rengi mor */
+.link-purple {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .process-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-item,
+  .process-steps {
+    flex: 1 1 100%;
+  }
+
+  .gallery-item img {
+    min-height: 350px;
+  }
+
+  .process-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: 1rem;
+  }
+
+  .process-card h1 {
+    font-size: 1.6rem;
+  }
+
+  .process-steps {
+    padding: 2rem 1.5rem;
+  }
+}
+
+
+
 
