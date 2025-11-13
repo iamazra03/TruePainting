@@ -414,6 +414,38 @@ html, body {
     margin-bottom: 30px;
 }
 
+/*BAŞTAKİ RESİM----*/
+.photo-item {
+    flex: 0 0 auto;
+    width: 100%;                     /* container’a göre genişlik */
+    max-width: 500px;                 /* istersen üst sınır */
+    aspect-ratio: 1 / 1;              /* <<< BU KARE OLMAYI GARANTİLİYOR */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #111;          /* fallback için */
+    position: relative;               /* gerekirse */
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                /* <<< RESİM KUTUYU TAM DOLDURUR, kenar boşluk kalmaz */
+    /* contain istersen dikey/yatay resimlerde boşluk kalır, 
+       cover ise kırpar ama boşluk bırakmaz – genelde galeri için cover tercih edilir */
+    display: block;
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+/*BAŞTAKİ RESİM----*/
+
+
+
 .gallery-wrapper {
     position: relative;
     overflow: hidden;
@@ -432,25 +464,33 @@ html, body {
 .gallery-container { -ms-overflow-style: none; scrollbar-width: none; }
 
 .gallery-item {
-    flex: 0 0 auto;
-    width: 400px;  /* Resimler büyük */
-    height: 250px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 0 0 400px;     /* ← BU SATIR EN ÖNEMLİ! */
+    /* veya daha açık yazımı: */
+    /* flex-shrink: 0; */
+    /* flex-grow: 0; */
+    /* flex-basis: 400px; */
+
+    width: 400px;        /* hâlâ yazabilirsin ama flex ile çakışmasın diye gerek yok */
+    height: 400px;
+    min-width: 400px;    /* ekstra güvenlik (bazı tarayıcılarda lazım) */
+    /* width ve min-width’i istersen kaldır, sadece flex: 0 0 400px yeter */
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.4s ease;
 }
 
 .gallery-item:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
 }
 
 /* Arrows */
